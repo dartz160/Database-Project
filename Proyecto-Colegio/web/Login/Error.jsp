@@ -12,6 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Error!</h1>
+        Error al iniciar sesion, click <a href="../index.jsp">Aqui</a>
+        para iniciar sesion.
     </body>
 </html>

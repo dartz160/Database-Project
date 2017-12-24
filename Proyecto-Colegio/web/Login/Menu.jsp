@@ -4,6 +4,8 @@
     Author     : Dartz
 --%>
 
+<%@page import="model.Privilegio"%>
+<%@page import="BD.Data"%>
 <%@page import="model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,10 +19,34 @@
         <h1>Menu Principal</h1>
         
         <%
-               Usuario u = (Usuario)session.getAttribute("user");
-              
 
-             
+               Data d = new Data();
+               Usuario u = (Usuario)session.getAttribute("user");
+               
+               if(u==null){
+                   response.sendRedirect("Error.jsp");
+               }
+               
+               else{
+               
+                        out.println("Bienvenido Señor/a "+ u.getLogin());
+                        out.println("<hr>");
+                        out.println("DNI: "+u.getDni());
+                        out.println("<br/>");
+                        out.println("Privilegio: "+ u.getPrivilegio());
+                        out.println("<hr>");
+               
+                        Privilegio p = d.getPrivilegio(u.getPrivilegio());
+               
+                        out.println("Privilegio: " + p.getDescripcion());
+                        out.println("<hr>");
+
+               }
+               
+               
+               
         %>
+        <hr/>
+        <a href ="../CerrarSesion"> Cerrar Sesion </a>
     </body>
 </html>

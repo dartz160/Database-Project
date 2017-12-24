@@ -40,8 +40,8 @@ public class Data {
             u.setLogin(rs.getString(2));
             /*u.setPassword(rs.getString(3));*/
             
-            u.setDni(rs.getString(4));
-            u.setPrivilegio(rs.getInt(5));
+            u.setDni(rs.getString(5));
+            u.setPrivilegio(rs.getInt(6));
 
         }
         

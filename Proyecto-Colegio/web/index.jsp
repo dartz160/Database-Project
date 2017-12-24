@@ -18,6 +18,12 @@
     <body>
         <h1>Hello World!</h1>
         
+        <%
+           session.invalidate();
+              
+
+        %>
+        
         <form action = "Login/Login.jsp" method="post">
             <input type ="submit" name="Login" value="Iniciar Sesion"/>
         </form>
