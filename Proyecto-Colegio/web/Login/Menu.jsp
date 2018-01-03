@@ -4,10 +4,14 @@
     Author     : Dartz
 --%>
 
+<%@taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="model.Privilegio"%>
 <%@page import="BD.Data"%>
 <%@page import="model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
+
 <!DOCTYPE html>
 <html>
     <head>

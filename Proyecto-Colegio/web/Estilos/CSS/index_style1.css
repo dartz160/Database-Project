@@ -1,0 +1,185 @@
+*{
+	margin:0;
+	padding:0;
+	font-family: helvetica;
+}
+
+section#banner{
+	height: 100%;
+	background-image: url(../Imagenes/fachada_colegio.jpg); 
+	background-size: 100%;
+	background-attachment: contain;
+	background-repeat: no-repeat;
+}
+
+header{
+	position:  fixed;
+	width: 100%;
+	height: 70px;
+	background-color:#1D1875; 
+	-webkit-transition:background-color 0.5s;
+	opacity: 0.9;
+}
+
+nav{
+	display: table;
+	margin: auto;
+	margin-top: 15px;
+	height: 40px;
+	-webkit-transition: margin-left 0.5s;
+}
+
+ul{
+	display: block;
+	float: left;
+	list-style: none;
+}
+
+ul  li{
+	float:left;
+	margin-left: 15px;
+	padding: 10px;
+}
+
+ul  a{
+	color: #F3F3F3;
+	text-decoration: none;/*para que el enlace no se subraye*/
+	font-size: 20px;
+}
+
+ul  b{
+	color: #fff;
+	text-decoration: none;/*para que el enlace no se subraye*/
+	font-size: 20px;
+}
+
+
+.boton{
+	text-decoration:none;
+	margin-left: 300px;
+	font-weight: 600px;
+	font-size:15px;
+	color: white;
+	background-color: #2C0101;
+	border-radius: 4px;
+	border: 4px solid #000;
+	text-align: center;
+	width: 100px; 
+	cursor: pointer;
+	font-weight: bold;
+	box-shadow: 2px 2px 90px #000;
+}
+
+
+#header p#header{
+	text-align: center;
+	font-size: 2.5em;
+	color:#9a9a9a;
+}
+
+#header p#subheader{
+	text-align: center;
+	color:#cecece;
+	margin-top:20px;
+	font-size: 1.3em;
+}
+
+#header{
+	margin: auto ;
+	width:1300px;
+	height:230px;
+	background-color: transparent;
+}
+
+#header div.contenedor{
+	width: 260px;
+	height: 300px;
+	margin-left:140px;
+	float:left;
+	-webkit-transition: height .4s;
+	-webkit-border-radius: 2%;
+	opacity: 0.9;
+
+}
+
+#header div#uno{
+	background-color:#1E235C;
+	opacity: 0.7;
+}
+
+#header div#dos{
+	background-color: #000;
+	opacity: 0.7;
+}
+
+#header div#tres{
+	background-color: #1E235C;
+	opacity: 0.7;
+}
+
+#header div#cuatro{
+	background-color: #000;
+	opacity: 0.7;
+}
+
+#header div#quinto{
+	background-color: #1E235C;
+	opacity: 0.7;
+}
+
+#header img.icon{
+	display: block;
+	margin:50px auto;
+	background-color: rgba(255,255,255,.15);
+	width:100px;
+	padding:45px;
+	-webkit-border-radius: 20%;
+	-webkit-box-shadow: 0px 0px 0px 30px rgba(255,255,255,0);
+	-webkit-transition:box-shadow .4s;
+}
+
+#header p.texto{
+	font-size: 1.2em;
+	color:white;
+	text-align: center;
+	padding-top:10px;
+	-webkit-transition: padding-top .4s;
+	font-weight: bold;
+}
+
+#header div.contenedor:hover{
+	height:250px;
+}
+
+#header div.contenedor:hover p.texto{
+	padding-top: 30px;
+	opacity: 1;
+}
+
+ #header div.contenedor:hover img.icon{
+	-webkit-box-shadow:0px 0px 0px 0px rgba(255,255,255,.6);
+}
+
+
+img#logo{
+	float:left;
+	display: block;
+	margin-left:140px;
+	margin-right: 80px;
+	margin-top: 100px;
+	width: 200px;
+	height: 200px;
+	-webkit-transition: width 0.5s,height 0.5s,margin-right 0.5s, margin-top 0.5s;
+	
+}
+
+#body{
+	width: 100%;
+	height: 500px;
+	margin-top: -180px;
+	background-image: url(../Imagenes/unsad2.jpg); 
+	background-color:#000;
+	/*background-position: center;*/
+	background-size: 100%;
+
+}

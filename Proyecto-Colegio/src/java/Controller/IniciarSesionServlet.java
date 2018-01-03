@@ -21,20 +21,13 @@ public class IniciarSesionServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
-
-        
         try {
             /*index.jsp -->IniciarSesionServlet---
             si el usuario se encuentra y para evaluar el nivel de privilegio y redireccionar a --> menu.jsp
             si el usuario no exite o es incorrecto nos redirecciona a error.jsp
             
             */
-            
-            
 
-            
-            
             Data d = new Data();
             //response.sendRedirect("Login/Error.jsp");
 
@@ -42,8 +35,6 @@ public class IniciarSesionServlet extends HttpServlet {
             String pass = request.getParameter("pass");
             
             Usuario u = d.getUsuario(user, pass);
-            
-              
             
             if(u==null)
             {
@@ -58,19 +49,28 @@ public class IniciarSesionServlet extends HttpServlet {
                 /*iniciamos un sesion*/
                 
                 HttpSession sesion = request.getSession();
-                sesion.setAttribute("user",u);
                 
-                
-                
-                
-                
-                response.sendRedirect("Login/Menu.jsp");
-            
+                switch(u.getPrivilegio()){
+                    case 1:
+                        
+                            
+                            sesion.setAttribute("user",u);
+                             response.sendRedirect("Admin/Admin.jsp");
+                             break;
+                    case 2:
+                            
+                           
+                            sesion.setAttribute("user",u);
+               
+                            response.sendRedirect("ProfesorUser/Profesor.jsp");
+                            break;
+                    case 3:
+                            sesion.setAttribute("user",u);
+               
+                            response.sendRedirect("AlumnoUser/Alumno.jsp");                
+                            break;
+                }
             }
-            
-            
-            
-            
             
         } catch (SQLException ex) {
             Logger.getLogger(IniciarSesionServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -79,9 +79,6 @@ public class IniciarSesionServlet extends HttpServlet {
             Logger.getLogger(IniciarSesionServlet.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("error" + ex);
         }
-        
-        
-        
         
     }
 

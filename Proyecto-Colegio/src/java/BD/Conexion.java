@@ -37,7 +37,11 @@ public class Conexion {
         rs = Sen.executeQuery(consulta);
         return rs;
     }
+    public Connection getConexion(){
+        return con;
     
+    }
+   
     public void desconectar() throws SQLException{
     
         Sen.close();

@@ -1,24 +1,43 @@
 
 package Controller;
 
+import ColegioController.EmpleadoController;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Persona;
+import model.Profesor;
 
+@WebServlet(name = "InfoProfesor", urlPatterns = {"/InfoProfesor"})
+public class InfoProfesor extends HttpServlet {
 
-@WebServlet(name = "CerrarSesionServlet", urlPatterns = {"/CerrarSesion"})
-public class CerrarSesionServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.getSession().removeAttribute("user");
-
-        response.sendRedirect("index.jsp");
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         
+        String dni = request.getParameter("DNI");
+        
+        
+        EmpleadoController pro = new EmpleadoController();
+        
+        Persona p = pro.getPersona(dni);
+        Profesor prof = pro.getProfesor(dni);
+        
+        request.setAttribute("InfoPersonal", p);
+        request.setAttribute("InfoProfesor",prof);
+        
+        request.getRequestDispatcher("Admin/InfoProfe.jsp").forward(request, response);
+        
+
+        
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -33,7 +52,13 @@ public class CerrarSesionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(InfoProfesor.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InfoProfesor.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -47,7 +72,14 @@ public class CerrarSesionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(InfoProfesor.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InfoProfesor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     /**

@@ -1,14 +1,12 @@
-<%-- 
-    Document   : index
-    Created on : 24/12/2017, 12:22:51 PM
-    Author     : Dartz
-    
-    Pagina de inicio del sistema web
 
-
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%--
+    HttpSession sesion = request.getSession(true);
+    sesion.invalidate();;
+
+--%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,13 +14,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Pagina de Incio</h1>
         
-        <%
-           session.invalidate();
-              
-
-        %>
+   
         
         <form action = "Login/Login.jsp" method="post">
             <input type ="submit" name="Login" value="Iniciar Sesion"/>

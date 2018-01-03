@@ -1,0 +1,141 @@
+*{
+	padding:0px;
+	margin:0px;
+}
+#header{
+  	
+	width: 100%;
+	height: 70px;
+	margin-top:0px;
+	background-color:#2C0101; 
+	opacity: 0.9;
+}
+
+#header nav {
+	display: table;
+	margin: auto;
+	margin-top: 15px;
+	height: 40px;
+
+}
+
+#header ul{
+	display: block;
+	float: left;
+	list-style: none;
+}
+
+#header ul > li{
+	float:left;
+	margin:10px;
+	padding: 2px;
+}
+
+#header ul > a{
+	color: #F3F3F3;
+	text-decoration: none;
+	float: left;
+	margin-left:20px;
+	margin-top: 25px; 
+}
+
+#header img#logo{
+	float:left;
+	display: block;
+	width: 80px;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-top: -10px;
+}
+#Titulo p{
+	font-size: 52px;
+	color: #fff;
+	width: 20%;
+	padding: 0.2em;
+	margin: 15px 200px;
+	
+	background: #2c0101;opacity: 0.9;
+	border:5px solid #000;
+	border-radius: 5em 2em;
+}
+#Cuerpo{
+	width: 80%;
+	border:5px solid #000;
+	padding: 15px;
+	border-radius: 2em 5em;
+	background-color:#2C0101; 
+	opacity: 0.9;
+	margin: auto;
+}
+form{
+	padding: 15px;
+	width: 70%;
+	margin: auto;
+
+}
+#as{
+	width: 100%;
+	height: 500px;
+	margin: auto;
+
+}
+#normal{
+	font-size: 14px;
+	margin-top: 20px;
+	margin-left: 15px;
+	padding: 25px;
+	width: 100%;
+	color: #fff;
+	text-align: left;
+	border-collapse: collapse;
+}
+th{
+
+	font-size: 13px;
+	font-weight:525156;
+	padding: 8px;
+	background: #AE2E2E;
+	border-top: 4px solid #fff;
+	border-bottom: 1px solid #fff;
+	color: white;
+}
+td{
+	padding: 5px;
+	
+	color: #A10B8B
+	border-top : 1px solid transparent;
+}
+tr:hover td{
+	background:#d0dafd;
+	
+}
+#nice{
+	display: inline-block;
+	padding: 2px 2px;
+	margin-left: -180px;
+	width: 80px;
+}
+form{
+	margin-top: -40px;
+}
+select{
+	color: #fff;
+	font-size: 20px; 
+	background:#DE5151;
+    height: 40px;
+    overflow: hidden;
+    width: 220px;
+    border-radius: 15px;
+    opacity: 0.9;
+}
+button {
+	font-size: 16px;
+	background-color: #FA4008;
+	border-radius: 30px;
+	border:2px solid #4B1302;
+	color: white;
+	padding: 10px 22px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	}
