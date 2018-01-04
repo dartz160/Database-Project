@@ -18,7 +18,7 @@ public class EmpleadoController {
     private ResultSet rs;
     public EmpleadoController() throws SQLException, ClassNotFoundException {
         
-        con = new Conexion("localhost","colegio","root","avefenix");
+        con = new Conexion();
     }
     
     
@@ -124,7 +124,7 @@ public class EmpleadoController {
     public List<Persona> ListarAlumno() throws SQLException
     {
     
-        List<Persona> lista = new ArrayList<>();
+        List<Persona> lista1 = new ArrayList<>();
         String consulta1 = "Select *from Persona INNER JOIN Alumno on Persona.DNI = Alumno.Persona_DNI  ";
         
    
@@ -132,17 +132,24 @@ public class EmpleadoController {
         
         while(rs.next())
         {
-            Persona per = new Persona();
+            Persona  P = new Persona();
             
-            per = getPersona(rs.getString("DNI"));
+            P.setDni(rs.getString(1));
+            P.setNombre(rs.getString(2));
+            P.setApellido1(rs.getString(3));
+            P.setApellido2(rs.getString(4));
+            P.setSexo(rs.getString(5));
+            P.setDireccion(rs.getString(6));
+            P.setFNacimiento(rs.getString(7));
+            P.setTelefono(rs.getString(8));
+            P.setEMail(rs.getString(9));
             
- 
-            lista.add(per);
+            lista1.add(P);
         }
         
         con.desconectar();
         rs.close();    
-        return  lista;
+        return  lista1;
             
     
     }

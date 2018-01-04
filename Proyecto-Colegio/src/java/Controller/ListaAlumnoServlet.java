@@ -1,11 +1,11 @@
 
-package OperacionesServlet;
+package Controller;
 
-import BD.Conexion;
+import ColegioController.EmpleadoController;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -13,46 +13,32 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Persona;
 
+@WebServlet(name = "ListaAlumnoServlet", urlPatterns = {"/ListaAlumnoServlet"})
+public class ListaAlumnoServlet extends HttpServlet {
 
-@WebServlet(name = "EditarDatosProfesor", urlPatterns = {"/EditarDatosProfesor"})
-public class EditarDatosProfesor extends HttpServlet {
-
-
+ 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
-
-         PreparedStatement pst = null;
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
+       
         
+        try{
+                
+         EmpleadoController m = new EmpleadoController();
+        List<Persona> lista = m.ListarAlumno();
         
-       try{
-           Conexion con = new Conexion();
-           String Consulta = "update Persona set Nombre=?, Apellido1=?, Apellido2=?, Direccion=?, Telefono=?,Correo =? where DNI =?";
-           
-           pst = con.getConexion().prepareStatement(Consulta);
-           
-           
-           pst.setString(1,request.getParameter("nombre"));
-           pst.setString(2,request.getParameter("apellido1"));
-           pst.setString(3,request.getParameter("apellido2"));
-           pst.setString(4,request.getParameter("direccion"));
-           pst.setString(5,request.getParameter("telefono"));
-           pst.setString(6,request.getParameter("correo"));
-           pst.setString(7,request.getParameter("DNI"));
-
-           pst.execute();
-           pst.close();
-
-           String Consulta2 = "update Profesor set ";
-           
-           con.getConexion().close();
-           
+        request.setAttribute("Lista", lista);
+        request.getRequestDispatcher("Admin/ListarAlumnos.jsp").forward(request, response);
+              
+                
+        }catch(Exception w){
             
+            System.out.println("error" + w);
         
-        }catch(SQLException e){
-        
-            System.out.println("Erro -->" +e.getMessage());
         }
+        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -69,8 +55,10 @@ public class EditarDatosProfesor extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ListaAlumnoServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EditarDatosProfesor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ListaAlumnoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -87,8 +75,10 @@ public class EditarDatosProfesor extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ListaAlumnoServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EditarDatosProfesor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ListaAlumnoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

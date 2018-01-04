@@ -36,13 +36,15 @@ public class VerProfesoresServlet extends HttpServlet {
             List<Profesor> Profesores = new ArrayList();
             
 
-            Conexion con = new Conexion("localhost","colegio","root","avefenix");
+            Conexion con = new Conexion();
            // String consulta = "Select *from Persona INNER JOIN Profesor on Persona.DNI = Profesor.Persona_DNI where DNI=43321455" ;
-            String consulta = "select * from Profesor where  Persona_DNI = + '"+request.getParameter("DNI")+"' ";
+            String consulta = "select * from Profesor where  Persona_DNI ='"+request.getParameter("DNI")+"' ";
            
             /*pst = con.getConexion().prepareStatement(consulta);
             
             pst.setString(1,request.getParameter("DNI"));*/
+            
+            System.out.println(consulta);
             
             rs = con.ejecutarSelect(consulta);
             
@@ -132,4 +134,8 @@ public class VerProfesoresServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    
+    
+    
+    
 }

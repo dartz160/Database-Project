@@ -8,7 +8,14 @@ public class Conexion {
     private Statement  Sen;  // Ejecutar la consulta 
     private ResultSet rs; //Recorrer los resultados (Tabla) guarda el resultado de la consulta 
 
-    public Conexion(String server, String bd, String user, String pass) throws SQLException, ClassNotFoundException {
+    public Conexion() throws SQLException, ClassNotFoundException {
+        
+        String server = "localhost";
+        String bd = "colegio";
+        
+        String user = "root";
+        String pass = "avefenix";
+        
         String protocolo ="jdbc:mysql://";
         String lineaUser = "user="+user;
         String lineaPass = "password="+pass;

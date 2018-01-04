@@ -27,7 +27,7 @@ public class AddProfe extends HttpServlet {
         PreparedStatement pst2 = null;
        
        try{
-            Conexion con = new Conexion("localhost","colegio","root","avefenix");
+            Conexion con = new Conexion();
             String consulta = "insert into Persona(DNI, Nombre, Apellido1, Apellido2, Sexo, Direccion, FNacimiento, Telefono, Correo) values (?,?,?,?,?,?,?,?,?)";
             pst = con.getConexion().prepareStatement(consulta);
             
