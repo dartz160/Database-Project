@@ -15,7 +15,7 @@
         <h1>Menu de Control de Alumnos</h1>
         
         <hr/>
-        <a href ="../ListaAlumnoServlet">Listar Alumnos </a>  &nbsp &nbsp &nbsp &nbsp;
+        <a href ="../AlumnoControllerServlet">Listar Alumnos </a>  &nbsp &nbsp &nbsp &nbsp;
        
         <a href ="">Agregar Alumno</a>   &nbsp &nbsp &nbsp &nbsp;
     

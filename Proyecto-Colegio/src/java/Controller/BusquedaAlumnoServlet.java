@@ -2,8 +2,11 @@
 package Controller;
 
 import BD.Conexion;
+import ColegioController.EmpleadoController;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +24,11 @@ import model.Persona;
 public class BusquedaAlumnoServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
+            //EmpleadoController Profesor = new EmpleadoController();
+            //PreparedStatement pst = null;
+            ResultSet rs;
+        
         
         try{
             
@@ -29,14 +36,42 @@ public class BusquedaAlumnoServlet extends HttpServlet {
             List<Persona> L_alumnos = new ArrayList(); 
             Conexion con = new Conexion();
             
-            String consulta = "select * form Persona where DNI = ";
+            String consulta = "Select *from Persona INNER JOIN Alumno on Persona.DNI = Alumno.Persona_DNI where Persona_DNI = '"+request.getParameter("DNI")+"'";
+            System.out.println(consulta);
+            rs = con.ejecutarSelect(consulta);
             
+            if (rs.next()){
+                
+                Persona P = new Persona();
+
+                P.setDni(rs.getString(1));
+                P.setNombre(rs.getString(2));
+                P.setApellido1(rs.getString(3));
+                P.setApellido2(rs.getString(4));
+                P.setSexo(rs.getString(5));
+                P.setDireccion(rs.getString(6));
+                P.setFNacimiento(rs.getString(7));
+                P.setTelefono(rs.getString(8));
+                P.setEMail(rs.getString(9));
+                
+                L_alumnos.add(P);
+                
+                request.setAttribute("lista", L_alumnos);
+                request.getRequestDispatcher("Admin/ListarAlumnos.jsp").forward(request, response);
+           
+            }else{
             
+                request.setAttribute("NoEncontro", "No se encontro al usuario verifique los datos de busqueda");
+                request.getRequestDispatcher("AlumnoControllerServlet").forward(request, response);
+            
+            }
+            
+            con.getConexion().close();
         
         
         }catch(SQLException m){ 
         
-        
+                    System.out.println("error" + m);
         
         
         }
@@ -59,6 +94,8 @@ public class BusquedaAlumnoServlet extends HttpServlet {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(BusquedaAlumnoServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(BusquedaAlumnoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -76,6 +113,8 @@ public class BusquedaAlumnoServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
+            Logger.getLogger(BusquedaAlumnoServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
             Logger.getLogger(BusquedaAlumnoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

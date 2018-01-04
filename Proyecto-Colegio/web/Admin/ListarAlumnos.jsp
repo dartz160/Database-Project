@@ -17,11 +17,18 @@
     </head>
     <body>
         <h1>Alumnos Matriculados</h1>
-        
-        
-        
-        
-        <form action = "" method="">
+           
+        <%
+        if(request.getAttribute("MSNError") != null)
+        {
+            %>
+            <b><%=request.getAttribute("MSNError")%></b>
+            <%
+        }
+
+        %>
+       
+        <form action = "BusquedaAlumnoServlet" method="">
             <input type="text" name="DNI" placeholder="DNI" />  
             <input type ="submit" name="btnIniciar" value="Buscar"/>
 
@@ -32,7 +39,7 @@
 
             List<Persona> Alumnos = new ArrayList();
             Persona u;
-            Alumnos = (ArrayList)request.getAttribute("Lista");
+            Alumnos = (ArrayList)request.getAttribute("lista");
             
                 out.println("<table border='1'>");
                     out.println("<tr>");
@@ -46,7 +53,7 @@
             for(Persona w:Alumnos){
                     out.println("<tr>");
                     
-                        out.println("<form action ='InfoProfesor'>");
+                        out.println("<form action ='Admin/OpcionesInformacionAlum.jsp'>");
                         out.println("<td>"+w.getDni()+"</td>");
                         out.println("<td>"+w.getNombre()+" "+w.getApellido1()+" "+w.getApellido2()+"</td>");
                         out.println("<td> <input name = DNI type = hidden value = '"+w.getDni()+"'> </td>");

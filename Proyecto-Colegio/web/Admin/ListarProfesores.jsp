@@ -29,7 +29,7 @@
         }
 
         
-        %>
+        %> 
         
         
         <form action = "VerProfesoresServlet" method="">

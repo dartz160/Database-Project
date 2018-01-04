@@ -12,7 +12,6 @@ public class Conexion {
         
         String server = "localhost";
         String bd = "colegio";
-        
         String user = "root";
         String pass = "avefenix";
         

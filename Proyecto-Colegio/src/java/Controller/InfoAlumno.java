@@ -1,44 +1,22 @@
 
 package Controller;
 
-import ColegioController.EmpleadoController;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Persona;
 
-@WebServlet(name = "ListaAlumnoServlet", urlPatterns = {"/ListaAlumnoServlet"})
-public class ListaAlumnoServlet extends HttpServlet {
 
- 
+@WebServlet(name = "InfoAlumno", urlPatterns = {"/InfoAlumno"})
+public class InfoAlumno extends HttpServlet {
+
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
-       
+            throws ServletException, IOException {
         
-        try{
-                
-         EmpleadoController m = new EmpleadoController();
-        List<Persona> lista = m.ListarAlumno();
-        
-        request.setAttribute("lista", lista);
-        request.getRequestDispatcher("Admin/ListarAlumnos.jsp").forward(request, response);
-              
-                
-        }catch(Exception w){
-            
-            System.out.println("error" + w);
-        
-        }
-        
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -53,13 +31,7 @@ public class ListaAlumnoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(ListaAlumnoServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ListaAlumnoServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -73,13 +45,7 @@ public class ListaAlumnoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(ListaAlumnoServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ListaAlumnoServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
