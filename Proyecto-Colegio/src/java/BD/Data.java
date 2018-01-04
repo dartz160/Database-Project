@@ -17,7 +17,7 @@ public class Data {
     
     public Data() throws SQLException, ClassNotFoundException
     {
-        con = new Conexion("localhost","colegio","root","avefenix");
+        con = new Conexion();
         
     }
     
