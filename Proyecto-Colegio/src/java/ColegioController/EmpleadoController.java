@@ -120,6 +120,32 @@ public class EmpleadoController {
     return Existe ;
     
     }
+    
+    public List<Persona> ListarAlumno() throws SQLException
+    {
+    
+        List<Persona> lista = new ArrayList<>();
+        String consulta1 = "Select *from Persona INNER JOIN Alumno on Persona.DNI = Alumno.Persona_DNI  ";
+        
+   
+        rs = con.ejecutarSelect(consulta1);
+        
+        while(rs.next())
+        {
+            Persona per = new Persona();
+            
+            per = getPersona(rs.getString("DNI"));
+            
+ 
+            lista.add(per);
+        }
+        
+        con.desconectar();
+        rs.close();    
+        return  lista;
+            
+    
+    }
    
    
 }
