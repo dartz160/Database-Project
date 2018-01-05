@@ -149,20 +149,11 @@ public class InformacionAlumnoServlet extends HttpServlet {
                     request.setAttribute("apoderado",AluFM);
         
                     request.getRequestDispatcher("Admin/InfoAlumno.jsp").forward(request, response);
-            
-            
+              
             }
-            
 
-    
- 
     }
-    
-    
-    
-    
-    
-    
+
     
     private void Perfil_A(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException{
     

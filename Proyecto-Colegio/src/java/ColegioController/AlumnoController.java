@@ -143,9 +143,32 @@ public class AlumnoController {
             id = rs.getInt("idAlumno");
         }
         
+        con.desconectar();
+        rs.close();
         return id;
     
     }
+    
+    public int getGrado_Seccion(String Seccion, String Grado,String Nivel) throws SQLException{
+        
+     int id= 0;
+    
+    String consultaGra= "select * from Grado_Seccion where Seccion ="+"A"+" and Grado = "+ Grado +" and Nivel = "+Nivel; 
+    
+    
+    System.out.println(consultaGra);
+    rs = con.ejecutarSelect(consultaGra);
+    if(rs.next()){
+            
+        id = rs.getInt("idGrado_Seccion");
+     } 
+    return id;
+    
+    
+    }
+
+    
+    
     
     
     

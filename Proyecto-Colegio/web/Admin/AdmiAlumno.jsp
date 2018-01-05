@@ -17,7 +17,7 @@
         <hr/>
         <a href ="../AlumnoControllerServlet">Listar Alumnos </a>  &nbsp &nbsp &nbsp &nbsp;
        
-        <a href ="">Agregar Alumno</a>   &nbsp &nbsp &nbsp &nbsp;
+        <a href ="AddAlumno.jsp">Agregar Alumno</a>   &nbsp &nbsp &nbsp &nbsp;
     
         <a href =""> volver </a>        &nbsp &nbsp &nbsp &nbsp;
         

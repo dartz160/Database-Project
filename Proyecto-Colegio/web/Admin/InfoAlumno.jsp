@@ -58,7 +58,7 @@
 
                 if(request.getAttribute("ErrorApo") != null)
                 {
-                        out.println("asdas");
+                        out.println(request.getAttribute("ErrorApo"));
                 }else{
                 
                 out.println("asdas");
